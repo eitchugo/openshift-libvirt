@@ -460,6 +460,25 @@ export KUBECONFIG=install-ocp4-ikw/auth/kubeconfig
 oc get csr -o name | xargs oc adm certificate approve
 ```
 
+Do this until you have all nodes Ready.
+
+## Memory limits
+
+We don't want so much memory used by prometheus:
+
+```
+cat <<EOF > /tmp/config.yaml
+prometheusK8s:
+  resources: 
+    requests:
+      memory: 256M
+EOF
+
+oc create configmap cluster-monitoring-config --from-file=config.yaml=/tmp/config.yaml -n openshift-monitoring
+sleep 30
+oc delete pod prometheus-k8s-0 oc delete pod prometheus-k8s-1 -n openshift-monitoring
+```
+
 ## Finishing
 
 Run this and wait for it to complete.

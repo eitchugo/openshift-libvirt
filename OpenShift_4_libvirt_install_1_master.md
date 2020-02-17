@@ -82,8 +82,6 @@ Results:
 api.ocp4-jqo.localdomain has address 192.168.140.1
 api-int.ocp4-jqo.localdomain has address 192.168.140.1
 etcd-0.ocp4-jqo.localdomain has address 192.168.140.10
-etcd-1.ocp4-jqo.localdomain has address 192.168.140.11
-etcd-2.ocp4-jqo.localdomain has address 192.168.140.12
 
 _etcd-server-ssl._tcp.ocp4-jqo.localdomain has SRV record 0 10 2380 etcd-2.ocp4-jqo.localdomain.
 ```
@@ -138,8 +136,6 @@ listen ocp4-jqo-api-server-6443
     mode tcp
     balance source
     server master0 192.168.140.10:6443 check inter 1s
-    server master1 192.168.140.11:6443 check inter 1s
-    server master2 192.168.140.12:6443 check inter 1s
     server bootstrap 192.168.140.5:6443 check inter 1s
 
 listen ocp4-jqo-machine-config-server-22623
@@ -147,8 +143,6 @@ listen ocp4-jqo-machine-config-server-22623
     mode tcp
     balance source
     server master0 192.168.140.10:22623 check inter 1s
-    server master1 192.168.140.11:22623 check inter 1s
-    server master2 192.168.140.12:22623 check inter 1s
     server bootstrap 192.168.140.5:22623 check inter 1s
  
 listen ocp4-jqo-ingress-router-80
@@ -156,8 +150,6 @@ listen ocp4-jqo-ingress-router-80
     mode tcp
     balance source
     server master0 192.168.140.10:80 check inter 1s
-    server master1 192.168.140.11:80 check inter 1s
-    server master2 192.168.140.12:80 check inter 1s
     server worker0 192.168.140.20:80 check inter 1s
     server worker1 192.168.140.21:80 check inter 1s
 
@@ -166,8 +158,6 @@ listen ocp4-jqo-ingress-router-443
     mode tcp
     balance source
     server master0 192.168.140.10:443 check inter 1s
-    server master1 192.168.140.11:443 check inter 1s
-    server master2 192.168.140.12:443 check inter 1s
     server worker0 192.168.140.20:443 check inter 1s
     server worker1 192.168.140.21:443 check inter 1s
 ```

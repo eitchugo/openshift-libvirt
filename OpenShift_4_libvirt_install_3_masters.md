@@ -1,4 +1,4 @@
-# OpenShift 4.3 installation with libvirt/kvm (development) - 1 master mode
+# OpenShift 4.3 installation with libvirt/kvm (development) - 3 master mode
 
 This installation is used for development/testing/learning only. It uses the Bare Metal UPI mode (User Provided Infrastructure) and libvirt.
 

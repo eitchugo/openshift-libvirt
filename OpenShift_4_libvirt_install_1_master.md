@@ -427,7 +427,7 @@ EOF
 
 oc create configmap cluster-monitoring-config --from-file=config.yaml=/tmp/config.yaml -n openshift-monitoring
 sleep 30
-oc delete pod prometheus-k8s-0 oc delete pod prometheus-k8s-1 -n openshift-monitoring
+oc delete pod prometheus-k8s-0 prometheus-k8s-1 -n openshift-monitoring
 ```
 
 ## Finishing
